@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  font-family: Arial;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  background: #141414;
+}
+
+h1 {
+  padding: 20px;
+  color: #E50914;
+}
+
+input {
+  font-size: 15px;
+  padding: 5px 10px;
+  margin-left: 20px;
+  background: white;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+}
+
+button {
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 5px 10px;
+  background: #E50914;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+}
+
+.film-container {
+  margin-top: 20px;
+}
+
+.film-container > p {
+  width: 100%;
+  margin: 10px 20px;
+}
+
+
+
+.film-container a {
+  color: white;
+  text-decoration: none;
+}
