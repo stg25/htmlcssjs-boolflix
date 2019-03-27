@@ -120,9 +120,13 @@ function searchButton() {
 function addFlag(originalLanguage) {
   var flag = "";
   if (originalLanguage == "it") {
-    flag = '<i class="fas fa-flag"></i>'
+    flag = "🇮🇹";
   } else if (originalLanguage == "en") {
-    flag = '<i class="fas fa-flag-usa"></i>'
+    flag = "🇬🇧";
+  } else if (originalLanguage == "es") {
+    flag = "🇪🇸";
+  } else {
+    flag = "🏳️";
   }
   return flag
 }
@@ -156,9 +160,9 @@ function addStars(averageVote) {
 
   for (var i = 0; i < 5; i++) {
     if (averageVote >= i) {
-      starVote += '<i class="fas fa-star">';
+      starVote += '<i class="fas fa-star"></i>';
     } else {
-      starVote += '<i class="far fa-star">';
+      starVote += '<i class="far fa-star"></i>';
     }
   }
   return starVote
@@ -179,7 +183,7 @@ function clearInput() {
   input.val("");
 }
 
-//  clear films function - wprk in progress
+//  clear films function
 
 function clearDiv() {
   var films = $(".film-container > p");
@@ -197,7 +201,6 @@ function init() {
   // search movie ENTER
   doc.on("keyup", "input", movieEnterSearch);
 
-  // display stars as vote
 }
 
 $(document).ready(init);
