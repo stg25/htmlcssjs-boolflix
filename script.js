@@ -1,9 +1,10 @@
 
 //  add movies + info: title - originalTitle - originalLanguage - starVote
 
-function addMovies(title, originalTitle, originalLanguage, averageVote) {
+function addMovies(title, originalTitle, originalLanguage, averageVote, img) {
   var tempData = {
 
+    img: img,
     title: title,
     originalTitle: originalTitle,
     originalLanguage: originalLanguage,
@@ -20,9 +21,10 @@ function addMovies(title, originalTitle, originalLanguage, averageVote) {
 
 //  add TV series + info: title - originalTitle - originalLanguage - starVote
 
-function addSeries(title, originalTitle, originalLanguage, averageVote) {
+function addSeries(title, originalTitle, originalLanguage, averageVote, img) {
   var tempData = {
 
+    img: img,
     title: title,
     originalTitle: originalTitle,
     originalLanguage: originalLanguage,
@@ -66,14 +68,16 @@ function searchButton() {
         var originalTitle = result.original_title;
         var originalLanguage = result.original_language;
         var averageVote = result.vote_average;
+        var img = result.poster_path;
+
+        originalLanguage = addFlag(originalLanguage)  // display states flag
 
         averageVote = voteCount(averageVote)  // count vote and
         averageVote = addStars(averageVote)   // display stars
 
-        originalLanguage = addFlag(originalLanguage)
+        img = addImg(img) // add image to HTML
 
-
-        addMovies(title, originalTitle, originalLanguage, averageVote);
+        addMovies(title, originalTitle, originalLanguage, averageVote, img);
       }
     },
 
@@ -96,14 +100,16 @@ function searchButton() {
         var originalTitle = result.original_name;
         var originalLanguage = result.original_language;
         var averageVote = result.vote_average;
-
-        averageVote = voteCount(averageVote)  // count vote and
-        averageVote = addStars(averageVote)   // display stars
+        var img = result.poster_path;
 
         originalLanguage = addFlag(originalLanguage)
 
+        averageVote = voteCount(averageVote)
+        averageVote = addStars(averageVote)
 
-        addSeries(title, originalTitle, originalLanguage, averageVote);
+        img = addImg(img)
+
+        addSeries(title, originalTitle, originalLanguage, averageVote, img);
       }
     },
 
@@ -113,6 +119,17 @@ function searchButton() {
   });
 
   clearInput();
+}
+
+// add image to html
+
+function addImg(img) {
+  if (img == null) {
+    imgPath = "wip.png"
+  } else {
+    imgPath = "https://image.tmdb.org/t/p/w185" + img;
+  }
+  return imgPath
 }
 
 // add right flag to html
@@ -186,8 +203,11 @@ function clearInput() {
 //  clear films function
 
 function clearDiv() {
-  var films = $(".film-container > p");
+  var films = $(".films-container > div.film");
+  var series = $(".series-container > div.serieTv");
+
   films.remove();
+  series.remove();
 }
 
 // init function

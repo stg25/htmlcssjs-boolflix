@@ -15,11 +15,29 @@
     <!-- Handlebars template -->
 
     <script id="films-template"type="text/x-handlebars-template">
-      <p><a href="#">{{ title }} / {{ originalTitle }} / {{{ originalLanguage }}} / {{{ stars }}}</a></p>
+      <div class="film">
+        <div class="film-img">
+          <img src="{{ img }}" width="70%" height="100%" alt="img.jpg">
+        </div>
+        <div class="film-info">
+          <p><a href="#">{{ title }}</a></p>
+          <p><a href="#">{{ originalTitle }}</a></p>
+          <p><a href="#">{{{ originalLanguage }}} {{{ stars }}}</a></p>
+        </div>
+      </div>
     </script>
 
     <script id="series-template"type="text/x-handlebars-template">
-      <p><a href="#">{{ title }} / {{ originalTitle }} / {{{ originalLanguage }}} / {{{ stars }}}</a></p>
+      <div class="serieTv">
+        <div class="serieTv-img">
+          <img src="{{ img }}" width="70%" height="100%" alt="img.jpg">
+        </div>
+        <div class="serieTv-info">
+          <p><a href="#">{{ title }}</a></p>
+          <p><a href="#">{{ originalTitle }}</a></p>
+          <p><a href="#">{{{ originalLanguage }}} {{{ stars }}}</a></p>
+        </div>
+      </div>
     </script>
 
     <script src="script.js"></script>
