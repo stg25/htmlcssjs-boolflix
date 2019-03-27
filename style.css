@@ -38,16 +38,34 @@ button {
   outline: none;
 }
 
-.film-container {
+.main-container {
   margin-top: 20px;
+  height: 500px;
+
+  display: flex;
+  justify-content: center;
 }
 
-.film-container > p {
+.films-container,
+.series-container {
+  width: 40%;
+  height: 100%;
+  overflow: scroll;
+}
+
+h2 {
+  height: 25px;
+  color: #E50914;
+  background: #141414;
+  margin: 10px 20px;
+}
+
+p {
   width: 100%;
   margin: 10px 20px;
 }
 
-.film-container a {
+a {
   color: white;
   text-decoration: none;
 }
