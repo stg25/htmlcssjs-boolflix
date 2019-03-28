@@ -17,12 +17,12 @@
     <script id="films-template"type="text/x-handlebars-template">
       <div class="film">
         <div class="film-img">
-          <img src="{{ img }}" width="70%" height="100%" alt="img.jpg">
-        </div>
-        <div class="film-info">
-          <p><a href="#">{{ title }}</a></p>
-          <p><a href="#">{{ originalTitle }}</a></p>
-          <p><a href="#">{{{ originalLanguage }}} {{{ stars }}}</a></p>
+          <img src="{{ img }}" alt="img.jpg">
+          <div class="film-info hidden">
+            <p><a href="#">{{ title }}</a></p>
+            <p><a href="#">{{ originalTitle }}</a></p>
+            <p><a href="#">{{{ originalLanguage }}} {{{ stars }}}</a></p>
+          </div>
         </div>
       </div>
     </script>
@@ -30,12 +30,12 @@
     <script id="series-template"type="text/x-handlebars-template">
       <div class="serieTv">
         <div class="serieTv-img">
-          <img src="{{ img }}" width="70%" height="100%" alt="img.jpg">
-        </div>
-        <div class="serieTv-info">
-          <p><a href="#">{{ title }}</a></p>
-          <p><a href="#">{{ originalTitle }}</a></p>
-          <p><a href="#">{{{ originalLanguage }}} {{{ stars }}}</a></p>
+          <img src="{{ img }}" alt="img.jpg">
+          <div class="serieTv-info hidden">
+            <p><a href="#">{{ title }}</a></p>
+            <p><a href="#">{{ originalTitle }}</a></p>
+            <p><a href="#">{{{ originalLanguage }}} {{{ stars }}}</a></p>
+          </div>
         </div>
       </div>
     </script>
@@ -44,17 +44,67 @@
   </head>
   <body>
     <div class="container">
-      <h1>BoolFlix</h1>
-      <input type="text" placeholder="Search...">
-      <button type="button">Search</button>
+      <div class="navbar">
+        <div class="navbar-left">
+          <h1>BoolFlix</h1>
+          <span id="home">Home</span>
+          <span>Serie</span>
+          <span>Film</span>
+          <span>Aggiunti di recente</span>
+          <span>La mia lista</span>
+        </div>
+        <div class="navbar-right">
+          <input type="text" placeholder="Search...">
+          <button type="button">Search</button>
+        </div>
+      </div>
+
+
+
       <div class="main-container">
+        <h2>MOVIES</h2>
         <div class="films-container">
-          <h2>Movies</h2>
+
         </div>
+        <h2>TV SERIES</h2>
         <div class="series-container">
-          <h2>TV Series</h2>
+
         </div>
+
+
+
+
+
+
+
+
       </div>
     </div>
   </body>
 </html>
+
+<!-- Test -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- test -->

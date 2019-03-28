@@ -48,6 +48,10 @@ function searchButton() {
   var input = $("input");
   var title = input.val().toLowerCase();
 
+  if (title.length == 0) {  // block ajax call
+    return;
+  }
+
   var outData = {
     api_key: "d9a3a396cd57a78d96bf9dfa9321f9b2",
     language: "it-IT",
@@ -100,7 +104,7 @@ function searchButton() {
         var originalTitle = result.original_name;
         var originalLanguage = result.original_language;
         var averageVote = result.vote_average;
-        var img = result.poster_path;
+        var img = result.backdrop_path;
 
         originalLanguage = addFlag(originalLanguage)
 
@@ -118,21 +122,35 @@ function searchButton() {
     }
   });
 
+  test()
+
+
   clearInput();
 }
 
-// add image to html
+//  display info on hover
+
+function test() {
+  var doc = $(document);
+  doc.on("click", ".film-img", function () {
+    var me = $(this);
+    var finded = me.find("div.film-info");
+    finded.removeClass("hidden")
+  })
+}
+
+//  add image to html
 
 function addImg(img) {
   if (img == null) {
-    imgPath = "wip.png"
+    imgPath = "wip.jpeg"
   } else {
-    imgPath = "https://image.tmdb.org/t/p/w185" + img;
+    imgPath = "https://image.tmdb.org/t/p/w300" + img;
   }
   return imgPath
 }
 
-// add right flag to html
+//  add right flag to html
 
 function addFlag(originalLanguage) {
   var flag = "";
@@ -224,3 +242,8 @@ function init() {
 }
 
 $(document).ready(init);
+
+
+
+
+// Test
