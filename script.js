@@ -79,7 +79,7 @@ function searchButton() {
         averageVote = voteCount(averageVote)  // count vote and
         averageVote = addStars(averageVote)   // display stars
 
-        img = addImg(img) // add image to HTML
+        img = addMovieImg(img) // add image to HTML
 
         addMovies(title, originalTitle, originalLanguage, averageVote, img);
       }
@@ -111,7 +111,7 @@ function searchButton() {
         averageVote = voteCount(averageVote)
         averageVote = addStars(averageVote)
 
-        img = addImg(img)
+        img = addSerieImg(img)
 
         addSeries(title, originalTitle, originalLanguage, averageVote, img);
       }
@@ -122,28 +122,25 @@ function searchButton() {
     }
   });
 
-  test()
-
-
   clearInput();
 }
 
-//  display info on hover
+//  add movie images to html
 
-function test() {
-  var doc = $(document);
-  doc.on("click", ".film-img", function () {
-    var me = $(this);
-    var finded = me.find("div.film-info");
-    finded.removeClass("hidden")
-  })
+function addMovieImg(img) {
+  if (img == null) {
+    imgPath = "movieImg.jpeg"
+  } else {
+    imgPath = "https://image.tmdb.org/t/p/w300" + img;
+  }
+  return imgPath
 }
 
-//  add image to html
+//  add tv series images to html
 
-function addImg(img) {
+function addSerieImg(img) {
   if (img == null) {
-    imgPath = "wip.jpeg"
+    imgPath = "serieImg.jpeg"
   } else {
     imgPath = "https://image.tmdb.org/t/p/w300" + img;
   }
@@ -239,11 +236,35 @@ function init() {
   // search movie ENTER
   doc.on("keyup", "input", movieEnterSearch);
 
+  // mouseenter movie-info shown
+  doc.on("mouseenter", ".film-img", function () {
+    var me = $(this);
+    var finded = me.find("div.film-info");
+    finded.removeClass("hidden")
+  })
+
+  // mouseleave movie-info hidden
+  doc.on("mouseleave", ".film-img", function () {
+    var me = $(this);
+    var finded = me.find("div.film-info");
+    finded.addClass("hidden")
+  })
+
+  // mouseenter serie-info shown
+  doc.on("mouseenter", ".serieTv-img", function () {
+    var me = $(this);
+    var finded = me.find("div.serieTv-info");
+    finded.removeClass("hidden")
+  })
+
+  // mouseleave serie-info hidden
+  doc.on("mouseleave", ".serieTv-img", function () {
+    var me = $(this);
+    var finded = me.find("div.serieTv-info");
+    finded.addClass("hidden")
+  })
+
+
 }
 
 $(document).ready(init);
-
-
-
-
-// Test

@@ -110,7 +110,7 @@ body {
 .series-container {
   width: 95%;
   height: 500px;
-
+  overflow: scroll;
   display: flex;
 }
 
@@ -125,10 +125,15 @@ body {
   display: flex;
 }
 
-.film-img,
-.serieTv-img {
+.film-img {
   width: 300px;
   height: 450px;
+  position: relative;
+}
+
+.serieTv-img {
+  width: 300px;
+  height: 169px;
   position: relative;
 }
 
@@ -140,6 +145,8 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+
+  background: rgba(0, 0, 0, 0.8);
 }
 
 .hidden {
@@ -147,11 +154,15 @@ body {
 }
 
 p {
+  color: white;
+  font-weight: bolder;
   width: 100%;
   margin: 10px 20px;
 }
 
 a {
   color: white;
+  font-size: 14px;
+  font-weight: lighter;
   text-decoration: none;
 }
